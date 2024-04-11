@@ -1,0 +1,11 @@
+// se añade button y un label en el Form1 que tenemos creado.
+private void button_Click(object sender, EnventArgs e){
+//pedir numero de servicios realizados
+string missatge="4/";
+byte[] msg= System.Text.Encoding.ASCII.Getbytes(missatge);
+server.Send(msg);
+byte[] msg2=new byte[80];
+server.Receive(msg2);
+missatge= Encoding.ASCII.GetString(msg2).Split('\0')[0];
+MessageBox.Show(missatge);
+}
